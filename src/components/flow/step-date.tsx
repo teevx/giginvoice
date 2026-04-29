@@ -41,7 +41,10 @@ export function StepDate({ serviceDate, onChange, onNext }: StepDateProps) {
           onClick={() => {
             const d = new Date();
             d.setDate(d.getDate() - 1);
-            const val = d.toISOString().split("T")[0];
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, "0");
+            const day = String(d.getDate()).padStart(2, "0");
+            const val = `${year}-${month}-${day}`;
             onChange(val);
           }}
           className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-card border border-card-border text-foreground hover:border-primary hover:text-primary`}
