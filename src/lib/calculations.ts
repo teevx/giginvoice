@@ -25,8 +25,6 @@ export function calculateHours(startTime: string, endTime: string): number {
   const startMinutes = parseTime(startTime);
   const endMinutes = parseTime(endTime);
 
-  if (startMinutes === 0 && endMinutes === 0) return 0;
-
   let diff = endMinutes - startMinutes;
   if (diff < 0) diff += 24 * 60;
 

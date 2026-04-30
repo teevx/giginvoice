@@ -56,9 +56,7 @@ export function StepService({
             value={query || (description && !AV_SERVICES.some(s => s.label === description) ? description : "")}
             onChange={(e) => {
               setQuery(e.target.value);
-              if (!AV_SERVICES.some(s => s.label === e.target.value)) {
-                onChangeDescription(e.target.value);
-              }
+              onChangeDescription(e.target.value);
             }}
             onKeyDown={(e) => {
               if (e.key === "Enter" && query.trim()) {

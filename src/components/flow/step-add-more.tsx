@@ -76,7 +76,8 @@ export function StepAddMore({
         <button
           type="button"
           onClick={onDone}
-          className="py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-hover transition-all duration-200"
+          disabled={lineItems.length === 0}
+          className="py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
         >
           That&apos;s Everything
         </button>
