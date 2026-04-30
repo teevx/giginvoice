@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CompanyProfile } from "@/lib/types";
 import { loadProfile } from "@/lib/storage";
-import { getReturnGreeting } from "@/lib/personality";
+import { getReturnGreetingDefault } from "@/lib/personality";
 
 function loadSavedProfile(): {
   saved: CompanyProfile | null;
@@ -18,7 +18,7 @@ function loadSavedProfile(): {
     return {
       saved,
       isReturning: true,
-      greeting: getReturnGreeting(saved.companyName),
+      greeting: getReturnGreetingDefault(saved.companyName),
     };
   }
   return { saved: null, isReturning: false, greeting: "" };

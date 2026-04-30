@@ -91,7 +91,7 @@ export function StepRate({
 
       <button
         onClick={onNext}
-        disabled={rate <= 0}
+        disabled={rate <= 0 || hours <= 0}
         className="w-full py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary-hover disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200"
       >
         Next

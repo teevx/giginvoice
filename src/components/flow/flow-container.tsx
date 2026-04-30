@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo } from "react";
 import { CompanyProfile, Invoice, LineItem, FlowStep, FLOW_STEPS } from "@/lib/types";
 import { calculateHours, calculateAmount, calculateTotals } from "@/lib/calculations";
-import { getStepMessage } from "@/lib/personality";
+import { getStepMessage, getStepMessageDefault } from "@/lib/personality";
 import { saveProfile, saveClient, incrementInvoiceNumber } from "@/lib/storage";
 import { getDefaultInvoice, createEmptyLineItem } from "@/lib/invoice-defaults";
 import { StepCompany } from "./step-company";
@@ -32,7 +32,7 @@ export function FlowContainer() {
   const [profile, setProfile] = useState<CompanyProfile>(emptyProfile);
   const [invoice, setInvoice] = useState<Invoice>(getDefaultInvoice);
   const [currentItem, setCurrentItem] = useState<LineItem>(createEmptyLineItem);
-  const [stepMessage, setStepMessage] = useState(() => getStepMessage("company"));
+  const [stepMessage, setStepMessage] = useState(() => getStepMessageDefault("company"));
 
   const stepIndex = FLOW_STEPS.indexOf(step);
   const progress = ((stepIndex + 1) / FLOW_STEPS.length) * 100;

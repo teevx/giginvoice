@@ -3,7 +3,7 @@
 import { Invoice, CompanyProfile } from "@/lib/types";
 import { formatCurrency, formatTime } from "@/lib/calculations";
 import { formatDateDisplay, generateFileName } from "@/lib/invoice-defaults";
-import { getCompletionMessage } from "@/lib/personality";
+import { getCompletionMessageDefault } from "@/lib/personality";
 import { useState, useMemo } from "react";
 import dynamic from "next/dynamic";
 
@@ -18,7 +18,7 @@ interface InvoicePreviewProps {
 }
 
 export function InvoicePreview({ invoice, profile }: InvoicePreviewProps) {
-  const [completionMsg] = useState(() => getCompletionMessage());
+  const [completionMsg] = useState(() => getCompletionMessageDefault());
   const fileName = useMemo(
     () =>
       generateFileName(

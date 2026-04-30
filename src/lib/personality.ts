@@ -56,6 +56,12 @@ export function getStepMessage(step: string): string {
   return pick(messages);
 }
 
+export function getStepMessageDefault(step: string): string {
+  const messages = stepMessages[step];
+  if (!messages) return "";
+  return messages[0];
+}
+
 export function getCalculationMessage(
   hours: number,
   rate: number,
@@ -81,6 +87,10 @@ export function getCompletionMessage(): string {
   return pick(messages);
 }
 
+export function getCompletionMessageDefault(): string {
+  return "Invoice ready. Go get your money.";
+}
+
 export function getReturnGreeting(companyName: string): string {
   const messages = [
     `Back already? ${companyName} must be busy.`,
@@ -89,6 +99,10 @@ export function getReturnGreeting(companyName: string): string {
     `Hey again. Ready to bill?`,
   ];
   return pick(messages);
+}
+
+export function getReturnGreetingDefault(companyName: string): string {
+  return `Back already? ${companyName} must be busy.`;
 }
 
 export function getLoadingMessage(): string {
